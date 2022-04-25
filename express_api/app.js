@@ -23,3 +23,35 @@ app.get('/v1/explorers', (req, res) => {
 
   res.status(200).json(explorers)
 })
+
+app.get('/v1/explorers/:id', (req, res) => {
+  console.log(`Api explorers GET ALL requests ${new Date()}`)
+  console.log(`Getting explorer with id ${req.params.id}`)
+  const explorer = {id1: 1, name: 'Eduardo'}  
+
+  res.status(200).json(explorer)
+})
+
+app.post('/v1/explorers/', (req, res) => {
+  console.log(`Api explorers POST request ${new Date()}`)
+  
+  const requestBody = req.body 
+
+  res.status(201).json({message: "Created"})
+})
+
+app.put('/v1/explorers/:id', (req, res) => {
+  console.log(`Api explorers PUT request ${new Date()}`)
+  console.log(`Getting explorer with id ${req.params.id}`)
+  const requestBody = req.body
+
+  res.status(201).json({message: "Updated"})
+})
+
+app.delete('/v1/explorers/:id', (req, res) => {
+  console.log(`Api explorers DELETE request ${new Date()}`)
+  console.log(`Getting explorer with id ${req.params.id}`)
+  const requestBody = req.body
+
+  res.status(201).json({message: "Deleted"})
+})
